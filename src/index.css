@@ -1,0 +1,33 @@
+svg{display:block;padding: 10px;}
+.pointer{cursor:pointer;}
+circle.thumb{
+    -webkit-transition: all .25s; /* Safari */
+    transition: all .25s;
+}
+circle.thumb:hover{
+    stroke: #fff;
+}
+#legend{
+    display: inline-block;
+}
+svg{
+    display: inline-block;                
+}
+
+
+ul.list{
+
+}
+
+ul.list li{
+    display: inline-block;
+}
+
+html, body{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+a{
+    text-decoration: none;
+}
