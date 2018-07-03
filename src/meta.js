@@ -4,15 +4,27 @@ var usa = {
         theme:{startColor: "#C18950", stopColor: "#935D25"},
         locations: [
             {
+                name: "Lassen Volcanic National Park", 
+                gps:[40.394730, -121.213204], 
+                thumb: "lassencathumb.jpg", 
+                pinSize: 25, 
+                detail:{
+                    heroImageUrl:"https://c1.staticflickr.com/5/4393/37187210301_ab6aea9f29.jpg",
+                    summary: "Lassen Volcanic National Park is in northern California. It's rich in hydrothermal sites like Bumpass Hell, with its acres of bubbling mud pots. The summit of Lassen Peak Volcano offers views over the surrounding wilderness. Nearby, the Devastated Area is littered with lava rocks from its last eruption. A network of trails through forest and around several lakes connects with the Pacific Crest Trail in the north.",
+                    link: "https://www.flickr.com/photos/boredgamer85/37329907095/in/album-72157670881997981/",
+                    tags: ["National park", "Volcano"]
+                }
+            },
+            {
                 name: "Big Bear", 
                 gps:[34.254532, -116.922436], 
                 thumb: "BigBear_thumb.jpg", 
                 pinSize: 15, 
                 detail:{
-                    heroImageUrl:"",
-                    summary: "",
+                    heroImageUrl:"https://c1.staticflickr.com/1/763/32180640215_72de357068.jpg",
+                    summary: "Big Bear Lake is a small city in Southern California. It sits on the banks of fish-filled Big Bear Lake. It’s known for Bear Mountain ski resort, with its terrain parks and learner slopes, and family-friendly Snow Summit ski resort. Boutiques, gift shops and restaurants line the streets of Big Bear Lake Village, the commercial area. Surrounding the city, the rugged San Bernardino National Forest has mountain trails.",
                     link: "https://www.flickr.com/photos/boredgamer85/32032297032/in/album-72157678890924035/",
-                    tags: []
+                    tags: ["Mountain"]
                 }
             },
             {
@@ -21,9 +33,9 @@ var usa = {
                 thumb: "Big Pine Creek Trail 1_thumb.JPG", 
                 pinSize: 15,
                 detail:{
-                    heroImageUrl:"",
-                    summary:"",
-                    link:"",
+                    heroImageUrl:"https://c2.staticflickr.com/2/1628/26158910464_2d291630dd.jpg",
+                    summary:"Big Pine is a census-designated place in Inyo County, California, United States. Big Pine is located approximately 15 miles south-southeast of Bishop, at an elevation of 3,989 feet.",
+                    link:"https://www.flickr.com/photos/boredgamer85/26739257686/in/album-72157665487734603/",
                     tags:[]
                 }
             },
@@ -33,10 +45,10 @@ var usa = {
                 thumb: "Mojave Desert_thumb.JPG", 
                 pinSize: 15,
                 detail:{
-                    heroImageUrl:"",
-                    summary:"",
-                    link:"",
-                    tags:[]
+                    heroImageUrl:"https://c2.staticflickr.com/6/5732/30423572364_661f27ddb6.jpg",
+                    summary:"The Mojave Desert is an arid rain-shadow desert and the driest desert in North America. It is in the southwestern United States, primarily within southeastern California and southern Nevada.",
+                    link:"https://www.flickr.com/photos/boredgamer85/31209155626/in/album-72157677075906455/",
+                    tags:["Desert"]
                 }
             },
             {
@@ -45,10 +57,10 @@ var usa = {
                 thumb:"Joshua Tree_thumb.JPG", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"",
-                    summary:"",
-                    link:"",
-                    tags:[]
+                    heroImageUrl:"https://c2.staticflickr.com/6/5833/22825340677_906b779e2e.jpg",
+                    summary:"Joshua Tree National Park is a vast protected area in southern California. It's characterized by rugged rock formations and stark desert landscapes. Named for the region’s twisted, bristled Joshua trees, the park straddles the cactus-dotted Colorado Desert and the Mojave Desert, which is higher and cooler. Keys View looks out over the Coachella Valley. Hiking trails weave through the boulders of Hidden Valley.",
+                    link:"https://www.flickr.com/photos/boredgamer85/25495210898/in/album-72157660821905839/",
+                    tags:["National Park"]
                 }
             },
             {
@@ -57,10 +69,10 @@ var usa = {
                 thumb:"Zabriskie Point_thumb.JPG", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"",
-                    summary:"",
-                    link:"",
-                    tags:[]
+                    heroImageUrl:"https://c2.staticflickr.com/2/1605/25486540101_22642a089b.jpg",
+                    summary:"Death Valley National Park straddles eastern California and Nevada. It’s known for Titus Canyon, with a ghost town and colorful rocks, and Badwater Basin’s salt flats, North America's lowest point. Above, Telescope Peak Trail weaves past pine trees. North of the spiky salt mounds known as the Devil’s Golf Course, rattlesnakes live in Mesquite Flat Sand Dunes.",
+                    link:"https://www.flickr.com/photos/boredgamer85/24948763734/in/album-72157664869598589/",
+                    tags:["Desert", "National Park"]
                 }
             },
             {
@@ -69,10 +81,10 @@ var usa = {
                 thumb:"Channel Island_thumb.jpg", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"",
-                    summary:"",
-                    link:"",
-                    tags:[]
+                    heroImageUrl:"https://c2.staticflickr.com/6/5747/30423926684_aaf21dba3b.jpg",
+                    summary:"The Channel Islands are an archipelago of eight islands located in the Pacific Ocean off the coast of southern California along the Santa Barbara Channel in the United States of America. Five of the islands are part of Channel Islands National Park, and the waters surrounding these islands make up Channel Islands National Marine Sanctuary. The islands were first colonized by the Chumash and Tongva Native Americans 13,000 years ago, who were then displaced by European settlers who used the islands for fishing and agriculture. The U.S. military uses the islands as training grounds, weapons test sites, and as a strategic defensive location. The Channel Islands and the surrounding waters house a diverse ecosystem with many endemic species and subspecies.",
+                    link:"https://www.flickr.com/photos/boredgamer85/30423926684/in/album-72157676980535256/",
+                    tags:["Pacific Ocean"]
                 }
             },
             {
@@ -81,10 +93,46 @@ var usa = {
                 thumb:"LagunaBeach_thumb.JPG", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"",
-                    summary:"",
-                    link:"",
-                    tags:[]
+                    heroImageUrl:"https://c1.staticflickr.com/5/4768/28349355709_58f69827fe.jpg",
+                    summary:"Laguna Beach is a small coastal city in Orange County, California. It’s known for its many art galleries, coves and beaches. Main Beach features tide pools and a boardwalk leading to the paths and gardens of nearby Heisler Park. Aliso Beach Park is a popular surf spot. The waters off Crystal Cove State Park are designated as an underwater park. Trails meander through coastal canyons in Laguna Coast Wilderness Park.",
+                    link:"https://www.flickr.com/photos/boredgamer85/40130041181/in/photolist-GoFRpJ-Gr6ztV-2499WaT-EtYMZe-22LGywc-EtYNHD-22LGC7t-2499X8K-22LGD1c-Kc8Qit-EtYQ2a-Kc8RLZ-EtYQTk-21TYmz9/",
+                    tags:["Beach", "Ocean"]
+                }
+            },
+            {
+                name: "John Muir Overlook", 
+                gps:[37.157871, -122.183091], 
+                thumb:"johnmuiroverlookca_thumb.jpg", 
+                pinSize:20,
+                detail:{
+                    heroImageUrl:"https://c1.staticflickr.com/5/4607/25597952457_5271d51471.jpg",
+                    summary:"Muir Beach Overlook is part of the Golden Gate National Recreation Area. People may visit this cliffside park when driving on State Route 1 north of San Francisco, California and south of Stinson Beach, California.",
+                    link:"https://www.flickr.com/photos/boredgamer85/25597952457/in/album-72157663459543168/",
+                    tags:["Beach", "Ocean"]
+                }
+            },
+            {
+                name: "Point Reyes", 
+                gps:[38.071592, -122.884998], 
+                thumb:"pointreyesca_thumb.jpg", 
+                pinSize:20,
+                detail:{
+                    heroImageUrl:"https://c1.staticflickr.com/5/4659/25598642747_70894b4537.jpg",
+                    summary:"Point Reyes National Seashore is a vast expanse of protected coastline in Northern California’s Marin County. Beaches here include Wildcat Beach, with the cliffside Alamere Falls. On a rocky headland, the 1870 Point Reyes Lighthouse is a viewpoint for migrating gray whales. The Phillip Burton Wilderness features extensive trails through grassland, firs and pine forest, and up to the peak of Mount Wittenberg.",
+                    link:"https://www.flickr.com/photos/boredgamer85/25598642747/in/album-72157688187270200/",
+                    tags:["Ocean", "Beach"]
+                }
+            },
+            {
+                name: "Point Loma", 
+                gps:[33.116676, -117.256704], 
+                thumb:"pointlomaca_thumb.jpg", 
+                pinSize:20,
+                detail:{
+                    heroImageUrl:"https://c1.staticflickr.com/1/882/40746027935_bbf2743367.jpg",
+                    summary:"Cabrillo National Monument is an extremely popular destination for tourists, and it is estimated that more than 215,000 people visit the tidepools annually. Compared to sandy beaches, the diversity of life in the rocky intertidal is impressive.",
+                    link:"https://www.flickr.com/photos/boredgamer85/40746033065/in/album-72157663459543168/",
+                    tags:["Ocean", "Beach", "National Monument"]
                 }
             },
             {
@@ -93,10 +141,34 @@ var usa = {
                 thumb:"Borrego Springs_thumb.JPG", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"",
-                    summary:"",
-                    link:"",
-                    tags:[]
+                    heroImageUrl:"https://c1.staticflickr.com/1/849/39825562180_27911c0261.jpg",
+                    summary:"Anza-Borrego Desert State Park is a state park located within the Colorado Desert of southern California, United States.",
+                    link:"https://www.flickr.com/photos/boredgamer85/39825562180/in/photolist-23Ffq8N",
+                    tags:["State Park", "Desert"]
+                }
+            },
+            {
+                name: "Kings Canyon and Sequoia National Park", 
+                gps:[36.065305, -118.646116], 
+                thumb:"kingscanyon_ca_thumb.jpg", 
+                pinSize:25,
+                detail:{
+                    heroImageUrl:"https://c1.staticflickr.com/1/829/41047735315_9fd6bf9cc5.jpg",
+                    summary:"Kings Canyon National Park, located on the western slope of the Sierra Nevada to the east of the San Joaquin Valley. Kings Canyon National Park is a national park in the southern Sierra Nevada, in Fresno and Tulare Counties, California in the United States. Originally established in 1890 as General Grant National Park, it was greatly expanded and renamed to Kings Canyon National Park on March 4, 1940.",
+                    link:"https://www.flickr.com/photos/boredgamer85/40139886310/in/album-72157694798740081/",
+                    tags:["National Park"]
+                }
+            },
+            {
+                name: "Mount Shasta", 
+                gps:[41.408423, -122.203980], 
+                thumb:"mountshasta_ca_thumb.jpg", 
+                pinSize:25,
+                detail:{
+                    heroImageUrl:"https://c1.staticflickr.com/5/4386/37185907241_8477cbdf13.jpg",
+                    summary:"Mount Shasta is a potentially active volcano at the southern end of the Cascade Range in Siskiyou County, California. At an elevation of 14,179 feet, it is the second-highest peak in the Cascades and the fifth-highest in the state.",
+                    link:"https://www.flickr.com/photos/boredgamer85/37328717925/in/album-72157689289343365/",
+                    tags:["Mountain"]
                 }
             }
         ], 

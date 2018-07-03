@@ -46,13 +46,15 @@ export default ({meta, onThumbClicked}) => {
                 fill={`url(#bg)`} 
                 stroke={'black'}/>;                    
     })}
-    {map.locations.map((loc, i) => <Tooltip title={loc.name}><circle key={i} 
+    {map.locations.map((loc, i) => <Tooltip key={i} title={loc.name}>
+        <circle
             className={`pointer thumb r-${loc.pinSize}`} 
-            onClick={onThumbClicked.bind(null, loc)}
+            onClick={onThumbClicked.bind(null, i)}
             cx={loc.coord[0]} 
             cy={loc.coord[1]} 
             r={loc.pinSize * .5} 
             stroke="#666" 
-            fill={`url(#img${1+i})`}/></Tooltip>)}
+            fill={`url(#img${1+i})`}/>
+        </Tooltip>)}
     </svg>;
 }

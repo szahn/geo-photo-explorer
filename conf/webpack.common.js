@@ -17,7 +17,7 @@ module.exports = {
   output: {
     path: path.join(process.cwd(), 'docs'),
     filename: '[name].[hash].js',
-    publicPath: '/',
+    publicPath: '',
     sourceMapFilename: '[name].map'
   },
 

@@ -20,6 +20,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
+import createHistory from "history/createHashHistory"
+
+const history = createHistory();
 
 const cssStyles = {
     infoIcon:{float: 'left', marginRight: '10px', fontSize: '2.4em', color: '#555'}
@@ -68,69 +71,122 @@ class App extends React.Component{
         this.buildMap = this.buildMap.bind(this);
 
         this.state = {
-            mapId: 'OR',
-            map: this.buildMap('OR'),
+            mapId: "",
+            map: null,
             maps: [
                 {id: 'WA', title: 'Washington'}, 
                 {id: 'OR', title: 'Oregon'}, 
                 {id: 'CA', title: 'California'}
             ],
-            selectedDetail:null
+            thumbnailIndex: null,
+            thumbnailInfo: null
         }
+        
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if (prevState.mapId !== this.state.mapId && this.state.mapId){
+            this.setState({
+                map: this.buildMap(this.state.mapId),
+                thumbnailInfo: meta.usa[this.state.mapId].locations[this.state.thumbnailIndex].detail
+            });
+        }
+
+        if (prevState.thumbnailIndex !== this.state.thumbnailIndex && this.state.thumbnailIndex !== null){
+            this.setState({
+                thumbnailInfo: meta.usa[this.state.mapId].locations[this.state.thumbnailIndex].detail
+            });
+        }
+    }
+
+    componentDidMount(){
+        this.historyUnlisten = history.listen((location, action) => {
+            this.onLocationChanged(location);
+        })
+
+        this.onLocationChanged(history.location);
+
+        const paths = location.pathname.split("/");
+        if (paths.indexOf("map") < 0){
+            history.replace(`/map/OR/0`);
+        }
+    }
+
+    onLocationChanged(location){
+        const paths = location.pathname.split("/");
+        const mapSegmentIndex = paths.indexOf("map");
+        const mapId = mapSegmentIndex > 0 && paths.length -1 >= mapSegmentIndex ? paths[1 + mapSegmentIndex] : "";
+        const thumbnailIndex = mapId && paths.length -1 >= 2 + mapSegmentIndex ? parseInt(paths[2 + mapSegmentIndex], 10) : null;
+
+        this.setState({
+            mapId: mapId,
+            thumbnailIndex: thumbnailIndex
+        });    
+    }
+
+    componentWillUnmount(){
+        this.historyUnlisten();
     }
 
     onChangeMap(e) {
         const mapId = e.target.value;
-        this.setState({
-            mapId: mapId,
-            map: this.buildMap(mapId)
-        });
+        history.replace(`/map/${mapId}/0`)
     }
 
     buildMap(mapId) { 
         return <GeoMap meta={meta.usa[mapId]} onThumbClicked={this.onThumbClicked}/>; 
     }
 
-    onThumbClicked(thumb, e) {
+    onThumbClicked(thumbIndex, e) {
         e.preventDefault();
-        this.setState({
-            selectedDetail: thumb.detail
-        });
+        if (this.state.thumbnailIndex !== thumbIndex){
+            history.replace(`/map/${this.state.mapId}/${thumbIndex}`);
+        }
     }
 
     renderDetailCard(){
         const {classes} = this.props;
-        const {selectedDetail} = this.state;
+        const {thumbnailInfo} = this.state;
 
-        if (!selectedDetail){
-            return <p>
-                <i class="material-icons" style={cssStyles.infoIcon}>info</i>Select a thumbnail
-            </p>;
+        if (!thumbnailInfo){
+            return <div>
+                <i className="material-icons" style={cssStyles.infoIcon}>info</i>
+                <Typography variant="body1" color="inherit">
+                    Select a thumbnail
+                </Typography>
+            </div>;
         }
 
         return <div>
-            <img src={selectedDetail.heroImageUrl} className={classes.thumb}/>
-            <p>
-                <i class="material-icons" style={cssStyles.infoIcon}>info</i>{selectedDetail.summary}
-            </p>
+            <img src={thumbnailInfo.heroImageUrl} className={classes.thumb}/>
+            <div>
+                <i className="material-icons" style={cssStyles.infoIcon}>info</i>
+                <Typography variant="body2" color="inherit">
+                    {thumbnailInfo.summary}
+                </Typography>
+            </div>
             <CardActions>
-                <a target="_blank" href={selectedDetail.link}><Button size="small">More Photos...</Button></a>
+                <a target="_blank" href={thumbnailInfo.link}><Button size="small">More Photos...</Button></a>
             </CardActions>
-            {selectedDetail.tags.map(tag => <Chip label={tag} className={classes.chip}/>)}
+            {thumbnailInfo.tags && thumbnailInfo.tags.map((tag, i) => <Chip key={i} label={tag} className={classes.chip}/>)}
         </div>
+    }
+
+    onMapRef(element){
+        this.mapEl = element;
     }
 
     render(){
         const {classes} = this.props;
-        const {mapId, maps, selectedDetail, state} = this.state;
+        const {mapId, maps} = this.state;
 
         return <div className={classes.root}>
             <CssBaseline />
             <AppBar position="static" color="default">
                 <Toolbar>
-                <Typography variant="title" color="inherit">
-                Favorite US Scenic Spots
-                </Typography>
+                    <Typography variant="title" color="inherit">
+                        Favorite US Scenic Spots
+                    </Typography>
                 </Toolbar>
             </AppBar>
             <Grid container>
