@@ -21,6 +21,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import createHistory from "history/createHashHistory"
+import GithubRibbon from './githubRibbon';
 
 const history = createHistory();
 
@@ -185,7 +186,7 @@ class App extends React.Component{
             <AppBar position="static" color="default">
                 <Toolbar>
                     <Typography variant="title" color="inherit">
-                        Favorite US Scenic Spots
+                        Explore Photos by Geography
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -194,7 +195,7 @@ class App extends React.Component{
                     <Paper className={classes.paper}>
                         <form className={classes.root} autoComplete="off">
                             <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="state-simple">Select a State</InputLabel>
+                                <InputLabel htmlFor="state-simple">Please Select a State</InputLabel>
                                 <Select
                                     value={mapId}
                                     onChange={this.onChangeMap}
@@ -224,6 +225,7 @@ class App extends React.Component{
                     </Grid>
                 </Grid>
             </Grid>
+            <GithubRibbon url="https://github.com/szahn/geo-photo-explorer"/>
         </div>
     }
 }

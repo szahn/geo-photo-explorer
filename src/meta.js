@@ -234,7 +234,7 @@ var usa = {
                 detail:{
                     heroImageUrl:"https://c1.staticflickr.com/5/4357/36457797170_2e93f47599.jpg",
                     summary: "The Painted Hills are listed as one of the Seven Wonders of Oregon. Painted Hills is named after the colorful layers of its hills corresponding to various geological eras, formed when the area was an ancient river floodplain.",
-                    link: "https://www.flickr.com/photos/boredgamer85/36850092415/in/album-72157668777226533/",
+                    link: "https://www.flickr.com/photos/boredgamer85/36714859581/in/album-72157688188789655/",
                     tags: ['Desert']
                 }
             },
