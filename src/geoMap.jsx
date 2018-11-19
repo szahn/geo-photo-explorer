@@ -9,9 +9,12 @@ export default ({meta, onThumbClicked}) => {
     const {theme, gpsCoordinates,geometry} = meta;
     const map = calcDimensions(gpsCoordinates, meta.locations, scaleCoordsBy(geometry.coordinates, 20));
 
+    const viewportWidth = .9 * (map.width * constants.mapZoom);
+    const viewportHeight = 50 + (map.height * constants.mapZoom);
+
     return <svg xmlns="http://www.w3.org/2000/svg" 
-            width={map.width * constants.mapZoom} 
-            height={map.height * constants.mapZoom}        
+            width={viewportWidth} 
+            height={viewportHeight}
             viewBox={`${0} ${0} ${map.width} ${map.height}`} 
             baseProfile="full" 
             version="1.1">
@@ -22,14 +25,14 @@ export default ({meta, onThumbClicked}) => {
             </linearGradient>
             {map.locations.map((loc, i) => <pattern key={i} 
                     id={`img${1+ i}`} 
-                    patternUnits='objectBoundingBox' 
-                    x={0} 
-                    y={0} 
+                    patternContentUnits='objectBoundingBox' 
+                    width='100%'
+                    height='100%'>
+                <image xlinkHref={`https://s3-us-west-2.amazonaws.com/photo-geo-explorer/120/${loc.thumb}`} 
+                    preserveAspectRatio="none"
                     width={1} 
-                    height={1}>
-                <image xlinkHref={`${constants.thumbnailRootUrl}/${loc.thumb}`} 
-                    width={loc.pinSize * constants.thumbPinScale} 
-                    height={loc.pinSize * constants.thumbPinScale}/>                
+                    height={1}
+                    />                
             </pattern>)}
         </defs>
         {map.coordinateSet.map((coords, i) => {

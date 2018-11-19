@@ -18,6 +18,8 @@ import Select from '@material-ui/core/Select';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import createHistory from "history/createHashHistory"
@@ -30,20 +32,25 @@ const cssStyles = {
 }
 
 const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexGrow: 1,
-    flexWrap: 'wrap'
-  },
-  formControl: {
-    margin: theme.spacing.unit,
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing.unit * 2,
-  },
+    root: {
+        display: 'flex',
+        flexGrow: 1,
+        flexWrap: 'wrap'
+    },
+    formControl: {
+        margin: theme.spacing.unit,
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing.unit * 2,
+    },
     card:{
 
+    },
+    media: {
+        paddingTop: '56.25%', // 16:9
+        height: 0,
+        objectFit: 'cover',
     },
     paper: {
         margin: 10
@@ -52,13 +59,8 @@ const styles = theme => ({
         margin: 10,
         textAlign: 'center'
     },
-    thumb:{
-        marginLeft: '-30px',
-        marginTop: '-30px',
-        width: '115%'
-    },
     chip: {
-      margin: theme.spacing.unit,
+        margin: theme.spacing.unit,
     }
 });
 
@@ -71,13 +73,17 @@ class App extends React.Component{
         this.onThumbClicked = this.onThumbClicked.bind(this);
         this.buildMap = this.buildMap.bind(this);
 
+        const defaultMapId = "CA";
         this.state = {
-            mapId: "",
-            map: null,
+            mapId: defaultMapId,
+            map: this.buildMap(defaultMapId),
             maps: [
-                {id: 'WA', title: 'Washington'}, 
-                {id: 'OR', title: 'Oregon'}, 
-                {id: 'CA', title: 'California'}
+                {id: 'AZ', title: 'Arizona'}, 
+                {id: 'CA', title: 'California'},
+                {id: 'NV', title: 'Nevada'},
+                {id: 'UT', title: 'Utah'}, 
+                {id: 'OR', title: 'Oregon'},
+                {id: 'WA', title: 'Washington'}
             ],
             thumbnailIndex: null,
             thumbnailInfo: null
@@ -89,13 +95,13 @@ class App extends React.Component{
         if (prevState.mapId !== this.state.mapId && this.state.mapId){
             this.setState({
                 map: this.buildMap(this.state.mapId),
-                thumbnailInfo: meta.usa[this.state.mapId].locations[this.state.thumbnailIndex].detail
+                thumbnailInfo: meta.usa[this.state.mapId].locations[this.state.thumbnailIndex]
             });
         }
 
         if (prevState.thumbnailIndex !== this.state.thumbnailIndex && this.state.thumbnailIndex !== null){
             this.setState({
-                thumbnailInfo: meta.usa[this.state.mapId].locations[this.state.thumbnailIndex].detail
+                thumbnailInfo: meta.usa[this.state.mapId].locations[this.state.thumbnailIndex]
             });
         }
     }
@@ -106,23 +112,20 @@ class App extends React.Component{
         })
 
         this.onLocationChanged(history.location);
-
-        const paths = location.pathname.split("/");
-        if (paths.indexOf("map") < 0){
-            history.replace(`/map/OR/0`);
-        }
     }
 
     onLocationChanged(location){
         const paths = location.pathname.split("/");
         const mapSegmentIndex = paths.indexOf("map");
         const mapId = mapSegmentIndex > 0 && paths.length -1 >= mapSegmentIndex ? paths[1 + mapSegmentIndex] : "";
-        const thumbnailIndex = mapId && paths.length -1 >= 2 + mapSegmentIndex ? parseInt(paths[2 + mapSegmentIndex], 10) : null;
 
-        this.setState({
-            mapId: mapId,
-            thumbnailIndex: thumbnailIndex
-        });    
+        if (mapId){
+            const thumbnailIndex = mapId && paths.length -1 >= 2 + mapSegmentIndex ? parseInt(paths[2 + mapSegmentIndex], 10) : null;
+            this.setState({
+                mapId: mapId,
+                thumbnailIndex: thumbnailIndex
+            });    
+        }
     }
 
     componentWillUnmount(){
@@ -149,28 +152,24 @@ class App extends React.Component{
         const {classes} = this.props;
         const {thumbnailInfo} = this.state;
 
-        if (!thumbnailInfo){
-            return <div>
-                <i className="material-icons" style={cssStyles.infoIcon}>info</i>
-                <Typography variant="body1" color="inherit">
-                    Select a thumbnail
-                </Typography>
-            </div>;
+        if (!thumbnailInfo || !thumbnailInfo.detail){
+            return null;
         }
 
-        return <div>
-            <img src={thumbnailInfo.heroImageUrl} className={classes.thumb}/>
-            <div>
-                <i className="material-icons" style={cssStyles.infoIcon}>info</i>
-                <Typography variant="body2" color="inherit">
-                    {thumbnailInfo.summary}
-                </Typography>
-            </div>
-            <CardActions>
-                <a target="_blank" href={thumbnailInfo.link}><Button size="small">More Photos...</Button></a>
-            </CardActions>
-            {thumbnailInfo.tags && thumbnailInfo.tags.map((tag, i) => <Chip key={i} label={tag} className={classes.chip}/>)}
-        </div>
+        return <Card className={classes.card}>
+            <CardActionArea href={thumbnailInfo.detail.link} target="_blank">
+                <CardMedia
+                        className={classes.media}
+                        image={`https://s3-us-west-2.amazonaws.com/photo-geo-explorer/500/${thumbnailInfo.thumb}`}
+                        title="Contemplative Reptile"/>
+                <CardContent>
+                    <Typography variant="body2" color="inherit">
+                        {thumbnailInfo.detail.summary}
+                    </Typography>
+                    {thumbnailInfo.detail.tags && thumbnailInfo.detail.tags.map((tag, i) => <Chip key={i} label={tag} className={classes.chip}/>)}
+                </CardContent>
+            </CardActionArea>
+        </Card>;
     }
 
     onMapRef(element){
@@ -181,8 +180,9 @@ class App extends React.Component{
         const {classes} = this.props;
         const {mapId, maps} = this.state;
 
-        return <div className={classes.root}>
+        return <Grid container>
             <CssBaseline />
+            <GithubRibbon url="https://github.com/szahn/geo-photo-explorer"/>
             <AppBar position="static" color="default">
                 <Toolbar>
                     <Typography variant="title" color="inherit">
@@ -195,7 +195,9 @@ class App extends React.Component{
                     <Paper className={classes.paper}>
                         <form className={classes.root} autoComplete="off">
                             <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="state-simple">Please Select a State</InputLabel>
+                                <InputLabel shrink htmlFor="state">
+                                    {`${maps.length} States`}
+                                </InputLabel>
                                 <Select
                                     value={mapId}
                                     onChange={this.onChangeMap}
@@ -208,25 +210,20 @@ class App extends React.Component{
                         </form>
                     </Paper>
                 </Grid>
-                <Grid container spacing={8}> 
-                    <Grid item xs>
-                        <Paper className={classes.mapContainer}>
-                            {this.state.map}
-                        </Paper>
-                    </Grid>
-                    <Grid item md={6}>
-                        <Paper className={classes.paper}>
-                            <Card className={classes.card}>
-                                <CardContent>
-                                    {this.renderDetailCard()}
-                                </CardContent>
-                            </Card>
-                        </Paper>
-                    </Grid>
+            </Grid>
+            <Grid container> 
+                <Grid item md={6} xs={12}>
+                    <Paper className={classes.mapContainer}>
+                        {this.state.map}
+                    </Paper>
+                </Grid>
+                <Grid item md={6} xs={12}>
+                    <Paper className={classes.paper}>
+                        {this.renderDetailCard()}
+                    </Paper>
                 </Grid>
             </Grid>
-            <GithubRibbon url="https://github.com/szahn/geo-photo-explorer"/>
-        </div>
+        </Grid>
     }
 }
 

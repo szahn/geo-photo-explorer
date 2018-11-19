@@ -33,8 +33,8 @@ export default (gpsCoordinates, gpsLocations, coordinateSet) => {
     var offsetX = 0 - Math.min(0, minX);
     var offsetY = (minY < 0) ? 0 - Math.min(0, minY) : 0 - Math.max(0, minY);
 
-    var mapWidth = maxX - minX;
-    var mapHeight = maxY - minY;
+    var mapWidth = (maxX - minX);
+    var mapHeight = (maxY - minY);
 
     const gpsWidth = Math.abs(gpsCoordinates.bottomRight[1] - gpsCoordinates.topLeft[1]);
     const gpsHeight = Math.abs(gpsCoordinates.bottomRight[0] - gpsCoordinates.topLeft[0]);

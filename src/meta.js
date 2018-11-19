@@ -1,174 +1,166 @@
 var usa = {
-    "AZ": {"type":"Feature","id":"04","properties":{"name":"Arizona","density":57.05},"geometry":{"type":"Polygon","coordinates":[[[-109.042503,37.000263],[-109.04798,31.331629],[-111.074448,31.331629],[-112.246513,31.704061],[-114.815198,32.492741],[-114.72209,32.717295],[-114.524921,32.755634],[-114.470151,32.843265],[-114.524921,33.029481],[-114.661844,33.034958],[-114.727567,33.40739],[-114.524921,33.54979],[-114.497536,33.697668],[-114.535874,33.933176],[-114.415382,34.108438],[-114.256551,34.174162],[-114.136058,34.305608],[-114.333228,34.448009],[-114.470151,34.710902],[-114.634459,34.87521],[-114.634459,35.00118],[-114.574213,35.138103],[-114.596121,35.324319],[-114.678275,35.516012],[-114.738521,36.102045],[-114.371566,36.140383],[-114.251074,36.01989],[-114.152489,36.025367],[-114.048427,36.195153],[-114.048427,37.000263],[-110.499369,37.00574],[-109.042503,37.000263]]]}},
+    "AZ": {
+        theme:{startColor: "#D38C78", stopColor: "#AD6D5B"},
+        locations: [
+            {
+                name: "Sedona", 
+                gps:[34.658145, -111.800801], 
+                thumb: "AZSedona.jpg", 
+                pinSize: 30, 
+                detail:{
+                    summary: "Sedona is an Arizona desert town near Flagstaff that’s surrounded by red-rock buttes, steep canyon walls and pine forests. It’s noted for its mild climate and vibrant arts community. Uptown Sedona is dense with New Age shops, spas and art galleries. On the town’s outskirts, numerous trailheads access Red Rock State Park, which offers bird-watching, hiking and picnicking spots.",
+                    link: "https://visitsedona.com/",
+                    tags: ["arizona"]
+                }
+            },
+            {
+                name: "Grand Canyon", 
+                gps:[36.063038, -112.440059], 
+                thumb: "AZGrandCanyon.jpg", 
+                pinSize: 30, 
+                detail:{
+                    summary: "Grand Canyon National Park, in Arizona, is home to much of the immense Grand Canyon, with its layered bands of red rock revealing millions of years of geological history. Viewpoints include Mather Point, Yavapai Observation Station and architect Mary Colter’s Lookout Studio and her Desert View Watchtower. Lipan Point, with wide views of the canyon and Colorado River, is a popular, especially at sunrise and sunset.",
+                    link: "https://www.nps.gov/grca/index.htm",
+                    tags: ["National Park", "Arizona"]
+                }
+            },
+            {
+                name: "Lost Dutchman State Park", 
+                gps:[33.263674, -111.479400], 
+                thumb: "AZDutchmanPark.jpg", 
+                pinSize: 30, 
+                detail:{
+                    summary: "Lost Dutchman State Park is a 320-acre state park located near the Superstition Mountains in central Arizona, USA, and named after the Lost Dutchman's Gold Mine, a famous gold mine legendary among the tales of the Old West.",
+                    link: "https://azstateparks.com/lost-dutchman/",
+                    tags: ["Arizona", "State Park"]
+                }
+            },
+            {
+                name: "Lake Powell", 
+                gps:[37.076457, -111.418290], 
+                thumb: "Lake Powell HDR 1.jpg", 
+                pinSize: 20, 
+                detail:{
+                    summary: "Lake Powell is a reservoir on the Colorado River, straddling the border between Utah and Arizona, United States. Most of Lake Powell, along with Rainbow Bridge National Monument, is located in Utah. It is a major vacation spot that around two million people visit every year.",
+                    link: "https://www.lakepowell.com/",
+                    tags: ["Arizona"]
+                }
+            }                    
+        ],
+        gpsCoordinates: {topLeft: [36.922588, -114.633976], bottomRight: [31.395219, -109.148862]}, 
+        geometry:{"type":"Polygon","coordinates":[[[-109.042503,37.000263],[-109.04798,31.331629],[-111.074448,31.331629],[-112.246513,31.704061],[-114.815198,32.492741],[-114.72209,32.717295],[-114.524921,32.755634],[-114.470151,32.843265],[-114.524921,33.029481],[-114.661844,33.034958],[-114.727567,33.40739],[-114.524921,33.54979],[-114.497536,33.697668],[-114.535874,33.933176],[-114.415382,34.108438],[-114.256551,34.174162],[-114.136058,34.305608],[-114.333228,34.448009],[-114.470151,34.710902],[-114.634459,34.87521],[-114.634459,35.00118],[-114.574213,35.138103],[-114.596121,35.324319],[-114.678275,35.516012],[-114.738521,36.102045],[-114.371566,36.140383],[-114.251074,36.01989],[-114.152489,36.025367],[-114.048427,36.195153],[-114.048427,37.000263],[-110.499369,37.00574],[-109.042503,37.000263]]]}
+    },
     "CA": {
-        theme:{startColor: "#C18950", stopColor: "#935D25"},
+        theme:{startColor: "#FFEE98", stopColor: "#D1C37C"},
         locations: [
             {
                 name: "Lassen Volcanic National Park", 
                 gps:[40.394730, -121.213204], 
-                thumb: "lassencathumb.jpg", 
+                thumb: "CALassen.jpg", 
                 pinSize: 25, 
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4393/37187210301_ab6aea9f29.jpg",
                     summary: "Lassen Volcanic National Park is in northern California. It's rich in hydrothermal sites like Bumpass Hell, with its acres of bubbling mud pots. The summit of Lassen Peak Volcano offers views over the surrounding wilderness. Nearby, the Devastated Area is littered with lava rocks from its last eruption. A network of trails through forest and around several lakes connects with the Pacific Crest Trail in the north.",
-                    link: "https://www.flickr.com/photos/boredgamer85/37329907095/in/album-72157670881997981/",
+                    link: "https://www.nps.gov/lavo/index.htm",
                     tags: ["National park", "Volcano"]
                 }
             },
             {
                 name: "Big Bear", 
                 gps:[34.254532, -116.922436], 
-                thumb: "BigBear_thumb.jpg", 
+                thumb: "CABigBear.jpg", 
                 pinSize: 15, 
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/1/763/32180640215_72de357068.jpg",
                     summary: "Big Bear Lake is a small city in Southern California. It sits on the banks of fish-filled Big Bear Lake. It’s known for Bear Mountain ski resort, with its terrain parks and learner slopes, and family-friendly Snow Summit ski resort. Boutiques, gift shops and restaurants line the streets of Big Bear Lake Village, the commercial area. Surrounding the city, the rugged San Bernardino National Forest has mountain trails.",
-                    link: "https://www.flickr.com/photos/boredgamer85/32032297032/in/album-72157678890924035/",
+                    link: "https://www.bigbear.com/",
                     tags: ["Mountain"]
-                }
-            },
-            {
-                name: "Big Pine", 
-                gps:[37.156529, -118.307726], 
-                thumb: "Big Pine Creek Trail 1_thumb.JPG", 
-                pinSize: 15,
-                detail:{
-                    heroImageUrl:"https://c2.staticflickr.com/2/1628/26158910464_2d291630dd.jpg",
-                    summary:"Big Pine is a census-designated place in Inyo County, California, United States. Big Pine is located approximately 15 miles south-southeast of Bishop, at an elevation of 3,989 feet.",
-                    link:"https://www.flickr.com/photos/boredgamer85/26739257686/in/album-72157665487734603/",
-                    tags:[]
-                }
-            },
-            {
-                name: "Mojave Desert", 
-                gps:[35.011052, -115.475064], 
-                thumb: "Mojave Desert_thumb.JPG", 
-                pinSize: 15,
-                detail:{
-                    heroImageUrl:"https://c2.staticflickr.com/6/5732/30423572364_661f27ddb6.jpg",
-                    summary:"The Mojave Desert is an arid rain-shadow desert and the driest desert in North America. It is in the southwestern United States, primarily within southeastern California and southern Nevada.",
-                    link:"https://www.flickr.com/photos/boredgamer85/31209155626/in/album-72157677075906455/",
-                    tags:["Desert"]
                 }
             },
             {
                 name: "Joshua Tree National Park", 
                 gps:[33.8574045,-115.9158259], 
-                thumb:"Joshua Tree_thumb.JPG", 
+                thumb:"JoshuaTree.jpg", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"https://c2.staticflickr.com/6/5833/22825340677_906b779e2e.jpg",
                     summary:"Joshua Tree National Park is a vast protected area in southern California. It's characterized by rugged rock formations and stark desert landscapes. Named for the region’s twisted, bristled Joshua trees, the park straddles the cactus-dotted Colorado Desert and the Mojave Desert, which is higher and cooler. Keys View looks out over the Coachella Valley. Hiking trails weave through the boulders of Hidden Valley.",
-                    link:"https://www.flickr.com/photos/boredgamer85/25495210898/in/album-72157660821905839/",
+                    link:"https://www.nps.gov/jotr/index.htm",
                     tags:["National Park"]
                 }
             },
             {
                 name: "Death Valley National Park", 
                 gps: [36.419142, -116.812444], 
-                thumb:"Zabriskie Point_thumb.JPG", 
+                thumb:"Zabriskie Point.jpg", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"https://c2.staticflickr.com/2/1605/25486540101_22642a089b.jpg",
                     summary:"Death Valley National Park straddles eastern California and Nevada. It’s known for Titus Canyon, with a ghost town and colorful rocks, and Badwater Basin’s salt flats, North America's lowest point. Above, Telescope Peak Trail weaves past pine trees. North of the spiky salt mounds known as the Devil’s Golf Course, rattlesnakes live in Mesquite Flat Sand Dunes.",
-                    link:"https://www.flickr.com/photos/boredgamer85/24948763734/in/album-72157664869598589/",
+                    link:"https://www.nps.gov/deva/index.htm",
                     tags:["Desert", "National Park"]
                 }
             },
             {
                 name: "Channel Islands", 
                 gps:[33.984283, -119.763456], 
-                thumb:"Channel Island_thumb.jpg", 
-                pinSize:20,
+                thumb:"CAChannelIslands.jpg", 
+                pinSize:30,
                 detail:{
-                    heroImageUrl:"https://c2.staticflickr.com/6/5747/30423926684_aaf21dba3b.jpg",
                     summary:"The Channel Islands are an archipelago of eight islands located in the Pacific Ocean off the coast of southern California along the Santa Barbara Channel in the United States of America. Five of the islands are part of Channel Islands National Park, and the waters surrounding these islands make up Channel Islands National Marine Sanctuary. The islands were first colonized by the Chumash and Tongva Native Americans 13,000 years ago, who were then displaced by European settlers who used the islands for fishing and agriculture. The U.S. military uses the islands as training grounds, weapons test sites, and as a strategic defensive location. The Channel Islands and the surrounding waters house a diverse ecosystem with many endemic species and subspecies.",
-                    link:"https://www.flickr.com/photos/boredgamer85/30423926684/in/album-72157676980535256/",
-                    tags:["Pacific Ocean"]
-                }
-            },
-            {
-                name: "Laguna Beach", 
-                gps:[33.522985, -117.768589], 
-                thumb:"LagunaBeach_thumb.JPG", 
-                pinSize:20,
-                detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4768/28349355709_58f69827fe.jpg",
-                    summary:"Laguna Beach is a small coastal city in Orange County, California. It’s known for its many art galleries, coves and beaches. Main Beach features tide pools and a boardwalk leading to the paths and gardens of nearby Heisler Park. Aliso Beach Park is a popular surf spot. The waters off Crystal Cove State Park are designated as an underwater park. Trails meander through coastal canyons in Laguna Coast Wilderness Park.",
-                    link:"https://www.flickr.com/photos/boredgamer85/40130041181/in/photolist-GoFRpJ-Gr6ztV-2499WaT-EtYMZe-22LGywc-EtYNHD-22LGC7t-2499X8K-22LGD1c-Kc8Qit-EtYQ2a-Kc8RLZ-EtYQTk-21TYmz9/",
-                    tags:["Beach", "Ocean"]
+                    link:"https://www.nps.gov/chis/index.htm",
+                    tags:["Pacific Ocean", "National Park"]
                 }
             },
             {
                 name: "John Muir Overlook", 
                 gps:[37.157871, -122.183091], 
-                thumb:"johnmuiroverlookca_thumb.jpg", 
+                thumb:"CAMuirOverlook.jpg", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4607/25597952457_5271d51471.jpg",
                     summary:"Muir Beach Overlook is part of the Golden Gate National Recreation Area. People may visit this cliffside park when driving on State Route 1 north of San Francisco, California and south of Stinson Beach, California.",
-                    link:"https://www.flickr.com/photos/boredgamer85/25597952457/in/album-72157663459543168/",
+                    link:"https://www.nps.gov/goga/planyourvisit/muirbeach.htm",
                     tags:["Beach", "Ocean"]
                 }
             },
             {
                 name: "Point Reyes", 
                 gps:[38.071592, -122.884998], 
-                thumb:"pointreyesca_thumb.jpg", 
+                thumb:"CAPointReyes.jpg", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4659/25598642747_70894b4537.jpg",
                     summary:"Point Reyes National Seashore is a vast expanse of protected coastline in Northern California’s Marin County. Beaches here include Wildcat Beach, with the cliffside Alamere Falls. On a rocky headland, the 1870 Point Reyes Lighthouse is a viewpoint for migrating gray whales. The Phillip Burton Wilderness features extensive trails through grassland, firs and pine forest, and up to the peak of Mount Wittenberg.",
-                    link:"https://www.flickr.com/photos/boredgamer85/25598642747/in/album-72157688187270200/",
+                    link:"https://www.nps.gov/pore/index.htm",
                     tags:["Ocean", "Beach"]
-                }
-            },
-            {
-                name: "Point Loma", 
-                gps:[33.116676, -117.256704], 
-                thumb:"pointlomaca_thumb.jpg", 
-                pinSize:20,
-                detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/1/882/40746027935_bbf2743367.jpg",
-                    summary:"Cabrillo National Monument is an extremely popular destination for tourists, and it is estimated that more than 215,000 people visit the tidepools annually. Compared to sandy beaches, the diversity of life in the rocky intertidal is impressive.",
-                    link:"https://www.flickr.com/photos/boredgamer85/40746033065/in/album-72157663459543168/",
-                    tags:["Ocean", "Beach", "National Monument"]
                 }
             },
             {
                 name: "Anza Borrego", 
                 gps:[33.098073, -116.302063], 
-                thumb:"Borrego Springs_thumb.JPG", 
+                thumb:"CAAnza.jpg", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/1/849/39825562180_27911c0261.jpg",
                     summary:"Anza-Borrego Desert State Park is a state park located within the Colorado Desert of southern California, United States.",
-                    link:"https://www.flickr.com/photos/boredgamer85/39825562180/in/photolist-23Ffq8N",
+                    link:"http://www.parks.ca.gov/?page_id=638",
                     tags:["State Park", "Desert"]
                 }
             },
             {
-                name: "Kings Canyon and Sequoia National Park", 
+                name: "Sequoia National Park", 
                 gps:[36.065305, -118.646116], 
-                thumb:"kingscanyon_ca_thumb.jpg", 
-                pinSize:25,
+                thumb:"CASequia.jpg", 
+                pinSize:40,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/1/829/41047735315_9fd6bf9cc5.jpg",
                     summary:"Kings Canyon National Park, located on the western slope of the Sierra Nevada to the east of the San Joaquin Valley. Kings Canyon National Park is a national park in the southern Sierra Nevada, in Fresno and Tulare Counties, California in the United States. Originally established in 1890 as General Grant National Park, it was greatly expanded and renamed to Kings Canyon National Park on March 4, 1940.",
-                    link:"https://www.flickr.com/photos/boredgamer85/40139886310/in/album-72157694798740081/",
+                    link:"https://www.nps.gov/seki/index.htm",
                     tags:["National Park"]
                 }
             },
             {
                 name: "Mount Shasta", 
                 gps:[41.408423, -122.203980], 
-                thumb:"mountshasta_ca_thumb.jpg", 
+                thumb:"CAShasta.jpg", 
                 pinSize:25,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4386/37185907241_8477cbdf13.jpg",
                     summary:"Mount Shasta is a potentially active volcano at the southern end of the Cascade Range in Siskiyou County, California. At an elevation of 14,179 feet, it is the second-highest peak in the Cascades and the fifth-highest in the state.",
-                    link:"https://www.flickr.com/photos/boredgamer85/37328717925/in/album-72157689289343365/",
-                    tags:["Mountain"]
+                    link:"https://visitmtshasta.com/",
+                    tags:["Mountain", "Volcano"]
                 }
             }
         ], 
@@ -181,72 +173,66 @@ var usa = {
             {
                 name: "Smith Rock", 
                 gps:[44.367617, -121.142169], 
-                thumb:"smithrockor_thumb.jpg", 
+                thumb:"ORSmithRock.jpg", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"https://c2.staticflickr.com/6/5523/31034594491_d1a3649b96.jpg",
                     summary: "Smith Rock State Park is an American state park located in central Oregon's High Desert near the communities of Redmond and Terrebonne. Its sheer cliffs of tuff and basalt are ideal for rock climbing of all difficulty levels.",
-                    link: "https://www.flickr.com/photos/boredgamer85/35285282354/in/album-72157676792377346/",
+                    link: "https://smithrock.com/",
                     tags: ['Climbing', "Hiking", "River"]
                 }
             },
             {
                 name: "Cannon Beach", 
                 gps:[45.184325, -123.766963], 
-                thumb:"cannonbeachor_thumb.png", 
+                thumb:"ORCannonBeach.jpg", 
                 pinSize:25,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4655/38989826664_13bee7de75.jpg",
                     summary: "Cannon Beach is a small coastal city in northwest Oregon. It’s known for its long, sandy shore. Standing tall in the ocean, Haystack Rock is a seasonal haven for tufted puffins. On a headland to the north, trails in Ecola State Park offer sweeping views of the ocean, coves and a lighthouse. South is Arcadia Beach, with tide pools and a picnic area. Nearby Hug Point has sea caves.",
-                    link: "https://www.flickr.com/photos/boredgamer85/38989826664/in/album-72157674432970526/",
+                    link: "http://www.cannonbeach.org/",
                     tags: ["Beach", "Ocean"]
                 }
             },
             {
                 name: "Columbia River Gorge", 
                 gps:[45.717059, -121.567153], 
-                thumb:"columbiarivergorgeor_thumb.jpg", 
+                thumb:"ORWAGorge.jpg", 
                 pinSize:25,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4434/37421112781_ea767bfd5c.jpg",
                     summary: "The Columbia River Gorge is a canyon of the Columbia River in the Pacific Northwest of the United States.",
-                    link: "https://www.flickr.com/photos/boredgamer85/37421112781/in/album-72157677582518314/",
+                    link: "https://www.fs.usda.gov/crgnsa",
                     tags: ["River"]
                 }
             },
             {
                 name: "Crater Lake", 
                 gps:[42.941285, -122.107685], 
-                thumb:"craterlake_thumb.jpg", 
+                thumb:"ORCraterLake2.jpg", 
                 pinSize:25,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4343/36679509352_a0977ca708.jpg",
                     summary: "Crater Lake National Park is in the Cascade Mountains of southern Oregon. It’s known for its namesake Crater Lake, formed by the now-collapsed volcano, Mount Mazama. Wizard Island is a cinder cone near the western edge of the lake.",
-                    link: "https://www.flickr.com/photos/boredgamer85/36850092415/in/album-72157668777226533/",
+                    link: "https://www.nps.gov/crla/index.htm",
                     tags: ['National Park', "Volcano"]
                 }
             },
             {
                 name: "Painted Hills", 
                 gps:[44.648677, -120.270208], 
-                thumb:"paintedhillsor.jpg", 
+                thumb:"ORPaintedHills1.jpg", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4357/36457797170_2e93f47599.jpg",
                     summary: "The Painted Hills are listed as one of the Seven Wonders of Oregon. Painted Hills is named after the colorful layers of its hills corresponding to various geological eras, formed when the area was an ancient river floodplain.",
-                    link: "https://www.flickr.com/photos/boredgamer85/36714859581/in/album-72157688188789655/",
+                    link: "https://traveloregon.com/things-to-do/painted-hills/",
                     tags: ['Desert']
                 }
             },
             {
                 name: "Trillium Lake", 
                 gps:[44.870463, -122.239089], 
-                thumb:"Trillium Lake_thumb.jpg", 
+                thumb:"ORTrilliumLake.jpg", 
                 pinSize:20,
                 detail:{
-                    heroImageUrl:"https://c1.staticflickr.com/5/4497/38026850166_ba3e277cb7.jpg",
                     summary: "Trillium Lake is a lake situated 7.5 miles south-southwest of Mount Hood in the U.S. state of Oregon. It is formed by a dam at the headwaters of Mud Creek, tributary to the Salmon River.",
-                    link: "https://www.flickr.com/photos/boredgamer85/24227173878/in/album-72157686826713622/",
+                    link: "https://en.wikipedia.org/wiki/Trillium_Lake",
                     tags: ['Lake', "Fishing"]
                 }
             }
@@ -260,36 +246,33 @@ var usa = {
             {   
                 name: "Hoh Rainforest", 
                 gps:[47.660640, -123.936047], 
-                thumb:"hohrainforest_thumb.jpg", 
+                thumb:"WAHohRainforest2.jpg", 
                 pinSize:20,
                 detail: {
-                    heroImageUrl:"https://c1.staticflickr.com/5/4246/34441475790_765f71164f.jpg",
                     summary: "The Hoh Rainforest is located on the Olympic Peninsula in western Washington state, USA. It is one of the largest temperate rainforests in the U.S.",
-                    link: "https://www.flickr.com/photos/boredgamer85/34441382240/in/album-72157684117122795/",
+                    link: "https://www.nps.gov/olym/planyourvisit/visiting-the-hoh.htm",
                     tags: ['Forest']
                 }
             },
             {
                 name: "Mount Rainier", 
                 gps:[47.252013, -121.761267], 
-                thumb:"mountrainier_thumb.jpg", 
+                thumb:"WAMountRainier2.jpg", 
                 pinSize:20,
                 detail: {
-                    heroImageUrl:"https://c1.staticflickr.com/5/4328/35952207345_df0acb84a5.jpg",
                     summary: "Mount Rainier is the highest mountain of the Cascade Range of the Pacific Northwest, and the highest mountain in the U.S. state of Washington.",
-                    link: "https://www.flickr.com/photos/boredgamer85/35952207345/in/album-72157684117122795/",
+                    link: "https://www.nps.gov/mora/index.htm",
                     tags: ['Mountain']
                 }
             },
             {
                 name: "Mount St. Helens", 
                 gps:[46.491014, -122.196667], 
-                thumb:"mountsthelens_thumb.jpg", 
+                thumb:"ORMountSaintHelens.jpg", 
                 pinSize:20,
                 detail: {
-                    heroImageUrl:"https://c1.staticflickr.com/5/4077/35562792242_6646041072.jpg",
                     summary: "Mount St. Helens is an active stratovolcano located in Skamania County, Washington, in the Pacific Northwest region of the United States. It is 50 miles northeast of Portland, Oregon and 96 miles south of Seattle, Washington.",
-                    link: "https://www.flickr.com/photos/boredgamer85/35731963055/in/album-72157684117122795/",
+                    link: "http://mountsthelens.com/",
                     tags: ['Volcano']
                 }
             },
@@ -302,9 +285,72 @@ var usa = {
         }
     },
     "NV": {
+        theme:{startColor: "#C18950", stopColor: "#935D25"},
+        locations: [
+            {
+                name: "Red Rock Canyon", 
+                gps:[36.145629, -115.855859], 
+                thumb:"NVRedRock1.jpg", 
+                pinSize:30,
+                detail:{
+                    summary:"Red Rock Canyon National Conservation Area lies in Nevada’s Mojave Desert. It’s known for geological features such as towering red sandstone peaks and the Keystone Thrust Fault, as well as Native American petroglyphs. Panoramic viewing spots dot the 13-mile Scenic Drive. The sheltered Ice Box Canyon has seasonal waterfalls. To the south, Spring Mountain Ranch State Park features historic buildings and hiking trails.",
+                    link:"https://www.redrockcanyonlv.org/",
+                    tags:[]
+                }
+            },
+            {
+                name: "Valley of Fire", 
+                gps:[36.885178, -114.531397], 
+                thumb:"NVValleyFire1.jpg", 
+                pinSize:30,
+                detail:{
+                    summary:"Valley of Fire State Park is a public recreation and nature preservation area covering nearly 46,000 acres located 16 miles south of Overton, Nevada. The state park derives its name from red sandstone formations, the Aztec Sandstone, which formed from shifting sand dunes 150 million years ago.",
+                    link:"http://parks.nv.gov/parks/valley-of-fire",
+                    tags:[]
+                }
+            },
+            {
+                name: "Virgin River", 
+                gps:[37.949005, -115.796528], 
+                thumb:"AZUTVirginRiver.jpg", 
+                pinSize:30,
+                detail:{
+                    summary:"The Virgin River is a tributary of the Colorado River in the U.S. states of Utah, Nevada, and Arizona. The river is about 162 miles (261 km) long.[2] It was designated Utah's first wild and scenic river in 2009, during the centennial celebration of Zion National Park.",
+                    link:"https://en.wikipedia.org/wiki/Virgin_River",
+                    tags:[]
+                }
+            }
+        ],
+        gpsCoordinates: {topLeft: [41.909763, -119.959334], bottomRight: [35.131818, -114.528898]}, 
         "geometry":{"type":"Polygon","coordinates":[[[-117.027882,42.000709],[-114.04295,41.995232],[-114.048427,37.000263],[-114.048427,36.195153],[-114.152489,36.025367],[-114.251074,36.01989],[-114.371566,36.140383],[-114.738521,36.102045],[-114.678275,35.516012],[-114.596121,35.324319],[-114.574213,35.138103],[-114.634459,35.00118],[-115.85034,35.970598],[-116.540435,36.501861],[-117.498899,37.21934],[-118.71478,38.101128],[-120.001861,38.999346],[-119.996384,40.264519],[-120.001861,41.995232],[-118.698349,41.989755],[-117.027882,42.000709]]]}
     },
     "UT": {
+        theme:{startColor: "#C18950", stopColor: "#935D25"},
+        locations: [
+            {
+                name: "Zion National Park", 
+                gps:[39.316430, -112.915778], 
+                thumb:"UTZion.jpg", 
+                pinSize:30,
+                detail:{
+                    summary:"Zion National Park is a southwest Utah nature preserve distinguished by Zion Canyon’s steep red cliffs. Zion Canyon Scenic Drive cuts through its main section, leading to forest trails along the Virgin River. The river flows to the Emerald Pools, which have waterfalls and a hanging garden. Also along the river, partly through deep chasms, is Zion Narrows wading hike.",
+                    link:"https://www.nps.gov/zion/index.htm",
+                    tags:[]
+                }
+            },
+            {
+                name: "Snow Canyon", 
+                gps:[37.201646, -113.645240], 
+                thumb:"UTSnowCanoyon1.jpg", 
+                pinSize:30,
+                detail:{
+                    summary:"Snow Canyon State Park is a state park of Utah, USA, featuring a canyon carved from the red and white Navajo sandstone in the Red Mountains. The park is located near Ivins, Utah and St. George in Washington County. Other geological features of the state park include extinct cinder cones, lava tubes, lava flows, and sand dunes.",
+                    link:"https://stateparks.utah.gov/parks/snow-canyon/",
+                    tags:[]
+                }
+            }
+        ],
+        gpsCoordinates: {topLeft: [41.984833, -114.029961], bottomRight: [37.017262, -109.096173]}, 
         "geometry":{"type":"Polygon","coordinates":[[[-112.164359,41.995232],[-111.047063,42.000709],[-111.047063,40.998429],[-109.04798,40.998429],[-109.053457,39.125316],[-109.058934,38.27639],[-109.042503,38.166851],[-109.042503,37.000263],[-110.499369,37.00574],[-114.048427,37.000263],[-114.04295,41.995232],[-112.164359,41.995232]]]}
     },
 };
